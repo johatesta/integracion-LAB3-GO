@@ -40,10 +40,10 @@ func GetToken(c *gin.Context) {
 func TokenRequest(code string, c *gin.Context) {
 	u := Token{
 		Grant_type:    "authorization_code",
-		Client_id:     2760149476611182,
-		Client_secret: "G0vTscPHYNlLrB148wwdsjuwkqWU1HOy",
+		Client_id:     5291933962243912,
+		Client_secret: "tnc3qX88LDPrWWXSMN3cL7OYd4L0y8Ta",
 		Code:          code,
-		Redirect_uri:  "http://localhost:4200/dashboard/",
+		Redirect_uri:  "http://localhost:8080/auth/",
 	}
 
 	b, err := json.Marshal(u)

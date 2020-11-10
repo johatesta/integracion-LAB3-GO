@@ -1,7 +1,7 @@
 package main
 
 import (
-    "github.com/florgm/webplanner_api/src/api/app"
+    "integracion-LAB3-GO/app"
 )
 
 func main() {

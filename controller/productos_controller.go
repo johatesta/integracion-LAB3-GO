@@ -16,81 +16,23 @@ type Foto struct {
 	Url string                 `json:"url"`
 }
 
-type Product struct {
-	Id    string               `json:"id"`
-	Title string               `json:"title"`
-	Price float64              `json:"price"`
-	Aq int     `json:"available_quantity"`
-	Pictures []PictureMeli	   `json:"pictures"`
+type Items struct{
+	Body struct {
+		Id    string  `id`
+		Title string  `title`
+		Price float32 `price`
+		Pictures[] map[string]string `pictures`
+
+	} `body`
+	Category string `category_id`
 }
 
-// ITEMS VENDIDOS
-type SingleItemMeli struct {
-	Title string                `json:"title"`
-}
-
-type Order_ItemsMeli struct {
-	SingleItem SingleItemMeli    `json:"item"`
-	Quantity int                 `json:"quantity"`
-	Unit_price float64           `json:"unit_price"`
-	Full_Unit_Price float64      `json:"full_unit_price"`
-}
-
-type ResultMeli struct {
-	Order_Items []Order_ItemsMeli `json:"order_items"`
-	Total_amount float64          `json:"total_amount"`
-	Paid_amount float64           `json:"paid_amount"`
-	Date_closed string            `json:"date_closed"`
-}
-
-type SoldItemMeli struct {
-	Result []ResultMeli            `json:"results"`
-}
-
-// PREGUNTAS SIN RESPONDER
-type QuestionMeli struct {
-	Date_created string   `json:"date_created"`
-	Text string           `json:"text"`
-	Status string         `json:"status"`
-}
-
-type QuestionsMeli struct {
-	Questions []QuestionMeli  `json:"questions"`
-}
-
-// ESTRUCTURA PARA ENVIAR AL FRONT
-
-type Item struct {
+type Item struct{
+	Id    string
 	Title string
-	Quantity int
-	Price float64
-	FirstPicture string
-}
-
-type Sold_Item struct {
-	Title string
-	Sold_Quantity int
-	Unit_Price float64
-	Subtotal float64
-}
-
-type Sale_Order struct {
-	Sold_Items [] Sold_Item
-	Sale_date string
-	Total  float64
-	Total_Delivery float64
-}
-
-type Unanswered_Question struct {
-	Question_date string
-	Title string
-	Question_text string
-}
-
-type Dashboard struct {
-	Items [] Item
-	Sales_Orders [] Sale_Order
-	Unanswered_Questions [] Unanswered_Question
+	Price float32
+	Category string
+	Picture string
 }
 
 func GetItem(c*gin.Context){
